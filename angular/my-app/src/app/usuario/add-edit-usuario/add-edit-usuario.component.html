@@ -1,0 +1,30 @@
+<div class="d flex row bd highlight mb-3">
+    <div class="form-froup row" style="width: 80em;">
+
+        <label class="col-sm2 col-form-label">Nombre Usuario</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="UserName"
+                placeholder="Ingrese nombre de usuario">
+        </div>
+
+        <label class="col-sm2 col-form-label">Rol</label>
+        <div class="col-sm-10">
+            <select class="form-control" [(ngModel)]="Rol">
+                <option>--Select--</option>
+                <option *ngFor="let rolName of RolList">
+                    {{rolName.rolName}}
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <div class="ml-3 bd-highlight" style="width: 40%;">
+        <img [src]="PhotoFilePath" height="250px;" width="200px;">
+        <input type="file" (change)="uploadPhoto($event)" class="mt-2"/>
+    </div>
+</div>
+
+
+<button (click)="addUser()" *ngIf="user.userId==0" class="btn btn-primary"> Add</button>
+<button (click)="updateUser()" *ngIf="user.userId!=0" class="btn btn-primary"> Update</button>
+
